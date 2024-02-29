@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>¡SE HA REGISTRADO CORRECTAMENTE!</h2>
+<mat-dialog-content>
+
+    <p>{{data.participante.nombre}} {{data.participante.primerApellido}} se ha registrado correctamente al campus {{data.campus.nombre}}</p>
+
+
+    <p>Estas son las formas de pago:</p>
+    <ul>
+        <li>{{data.campus.formaPagoUno}}</li>
+        <li>{{data.campus.formaPagoDos}}</li>
+        @if(data.campus.formaPagoTres != ""){
+        <li>{{data.campus.formaPagoTres}}</li>
+        }
+    </ul>
+
+    <p>Este es el precio: </p>
+    @if(data.participante.esJugador=="SI"){
+        <p>{{data.campus.precio-data.campus.descuentoJugador}} €</p>
+    }
+    @else {
+        <p>{{data.campus.precio}} €</p>
+    }    
+
+    <p>*Si van hermanos, consulta el precio total con el coordinador</p>
+
+
+    <p>Recuerde que tienes 7 días para hacer el pago y siempre antes del 15/03/2024</p>
+    <p>SALUDOS</p>
+
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button (click)="CerrarTodo()" mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>

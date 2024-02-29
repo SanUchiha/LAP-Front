@@ -1,0 +1,50 @@
+@for (item of listaCampusIn; track $index) {
+<section class="text-gray-600 body-font overflow-hidden">
+    <div class="container px-5 py-5 mx-auto mb-5">
+        <div class="lg:w-4/5 mx-auto flex flex-wrap">
+            <div class="lg:w-1/2 w-full lg:pr-10 lg:py-6 mb-6 lg:mb-0">
+                <h2 class="text-sm title-font text-gray-300 tracking-widest">{{item.nombre}}</h2>
+                <div class="flex mb-4">
+                    <a class="flex-grow text-yellow-500 border-b-2 border-yellow-500 py-2 text-lg px-1">Descripción</a>
+                </div>
+                <p class="leading-relaxed text-gray-100 mb-4">{{item.descripcion}}</p>
+                <div class="flex border-t border-gray-200 py-2">
+                    <span class="text-gray-300">Fechas</span>
+                    <span class="ml-auto text-gray-100">{{item.fechas}}</span>
+                </div>
+                <div class="flex border-t border-gray-200 py-2">
+                    <span class="text-gray-300">Horario</span>
+                    <span class="ml-auto text-gray-100">{{item.horario}}</span>
+                </div>
+                <div class="flex border-t border-gray-200 py-2">
+                    <span class="text-gray-300">Número de plazas</span>
+                    <span class="ml-auto text-gray-100">{{item.numeroPlazas}}</span>
+                </div>
+                <div class="flex border-t border-gray-200 py-2">
+                    <span class="text-gray-300">Número de plazas restantes</span>
+                    <span class="ml-auto text-yellow-500">{{item.numeroPlazasRestantes}}</span>
+                </div>
+                @if(item.descuento){
+                <div class="flex border-t border-gray-200 py-2">
+                    <span class="text-gray-300">Precio</span>
+                    <span class="ml-auto text-gray-100">{{item.precio}}</span>
+                </div>
+                <div class="flex border-t border-b mb-6 border-gray-200 py-2">
+                    <span class="text-gray-300">Precio para jugad&#64;r del Tiñosa</span>
+                    <span class="ml-auto text-gray-100">{{item.descuento}}</span>
+                </div>
+                }
+                <div class="flex justify-between">
+                    <button (click)="MasInformacion(item.idCampus)"
+                        class="text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded">Más
+                        información</button>
+                    <button (click)="GoToForm(item.idCampus)"
+                        class="text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded">APUNTATE</button>
+                </div>
+            </div>
+            <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded"
+                src={{item.imagen}}>
+        </div>
+    </div>
+</section>
+}

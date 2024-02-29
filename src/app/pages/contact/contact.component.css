@@ -1,0 +1,5 @@
+body {
+    background-color: #000; /* Código hexadecimal para el color negro */
+    margin: 0; /* Para eliminar el margen predeterminado del body */
+    font-family: 'Helvetica', sans-serif; /* Ajusta la fuente según tus preferencias */
+  }

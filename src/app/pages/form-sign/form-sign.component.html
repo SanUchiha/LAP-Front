@@ -1,0 +1,282 @@
+<section class="text-gray-400 bg-black body-font">
+    <div class="container mx-auto flex flex-col px-5 py-24 justify-center items-center">
+        <div class="w-full md:w-2/3 flex flex-col mb-16 items-center text-center">
+            <form [formGroup]="formularioContacto" (ngSubmit)="submit()" class="w-full md:w-2/3 mx-auto">
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">Nombre del participante</label>
+                    <input type="text" formControlName="nombre" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <div *ngIf="this.formularioContacto.get('nombre')?.errors?.['required']" class="text-red-500">
+                        (El campo no puede quedar vacío)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">Primer Apellido</label>
+                    <input type="text" formControlName="primerApellido" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <div *ngIf="this.formularioContacto.get('primerApellido')?.errors?.['required']"
+                        class="text-red-500">
+                        (El campo no puede quedar vacío)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">Segundo Apellido</label>
+                    <input type="text" formControlName="segundoApellido" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">DNI del participante</label>
+                    <input type="text" formControlName="dniParticipante" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <div *ngIf="this.formularioContacto.get('dniParticipante')?.errors?.['required']"
+                        class="text-red-500">
+                        (El campo no puede quedar vacío)
+                    </div>
+                    <div *ngIf="this.formularioContacto.get('dniParticipante')?.errors?.['minlength']"
+                        class="text-red-500">
+                        (Debe tener 9 caracteres)
+                    </div>
+                    <div *ngIf="this.formularioContacto.get('dniParticipante')?.errors?.['maxlength']"
+                        class="text-red-500">
+                        (Debe tener 9 caracteres)
+                    </div>
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">Fecha de nacimiento</label>
+                    <input type="text" formControlName="fechaNacimiento" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <div *ngIf="this.formularioContacto.get('fechaNacimiento')?.errors?.['required']"
+                        class="text-red-500">
+                        (El campo no puede quedar vacío)
+                    </div>
+
+                    <div *ngIf="this.formularioContacto.get('fechaNacimiento')?.errors?.['formatoFechaInvalido']"
+                        class="text-red-500">
+                        (el formato es DD/MM/AAAA, ejemplo 01/01/2000)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">direccion</label>
+                    <input type="text" formControlName="direccion" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <div *ngIf="this.formularioContacto.get('direccion')?.errors?.['required']" class="text-red-500">
+                        (El campo no puede quedar vacío)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">Localidad</label>
+                    <input type="text" formControlName="localidad" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <div *ngIf="this.formularioContacto.get('localidad')?.errors?.['required']" class="text-red-500">
+                        (El campo no puede quedar vacío)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">Código postal</label>
+                    <input type="text" formControlName="codigoPostal" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <div *ngIf="this.formularioContacto.get('codigoPostal')?.errors?.['required']" class="text-red-500">
+                        (El campo no puede quedar vacío)
+                    </div>
+                    <div *ngIf="this.formularioContacto.get('codigoPostal')?.errors?.['minlength']"
+                        class="text-red-500">
+                        (Debe tener 5 números)
+                    </div>
+                    <div *ngIf="this.formularioContacto.get('codigoPostal')?.errors?.['maxlength']"
+                        class="text-red-500">
+                        (Debe tener 5 números)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">Si ha tenido lesiones descríbelas</label>
+                    <textarea rows="5" formControlName="lesiones"
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500"></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="block text-white text-left">¿Toma medicación?</label>
+                    <select formControlName="tomaMedicacion" required
+                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10">
+                        <option value="NO">NO</option>
+                        <option value="SI">SI</option>
+                    </select>
+                    <div *ngIf="this.formularioContacto.get('tomaMedicacion')?.errors?.['required']" class="text-red-500">
+                        (Selecciona una opción)
+                    </div>
+                </div>
+
+                @if(formularioContacto.get('tomaMedicacion')?.value =='SI'){
+                    <div class="mb-3">
+                        <label class="block text-white text-left">Describe la medicación que toma</label>
+                        <textarea rows="5" formControlName="descripcionMedicacion"
+                            class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500"></textarea>
+                    </div>
+                }
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">¿Alergias?</label>
+                    <select formControlName="alergias" required
+                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10">
+                        <option value="NO">NO</option>
+                        <option value="SI">SI</option>
+                    </select>
+                    <div *ngIf="this.formularioContacto.get('alergias')?.errors?.['required']" class="text-red-500">
+                        (Selecciona una opción)
+                    </div>
+                </div>
+                
+                @if(formularioContacto.get('alergias')?.value =='SI'){
+                    <div class="mb-3">
+                        <label class="block text-white text-left">¿A qué tiene alergia?</label>
+                        <textarea rows="5" formControlName="descripcionAlergias"
+                            class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500"></textarea>
+                    </div>
+                }
+        
+                <div class="mb-3">
+                    <label class="block text-white text-left">Nombre del tutor</label>
+                    <input type="text" formControlName="nombreTutor" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <div *ngIf="this.formularioContacto.get('nombreTutor')?.errors?.['required']" class="text-red-500">
+                        (El campo no puede quedar vacío)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">Primer Apellido</label>
+                    <input type="text" formControlName="primerApellidoTutor" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <div *ngIf="this.formularioContacto.get('primerApellidoTutor')?.errors?.['required']"
+                        class="text-red-500">
+                        (El campo no puede quedar vacío)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">Segundo Apellido</label>
+                    <input type="text" formControlName="segundoApellidoTutor" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">DNI del tutor</label>
+                    <input type="text" formControlName="dnitutor" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <div *ngIf="this.formularioContacto.get('dnitutor')?.errors?.['required']" class="text-red-500">
+                        (El campo no puede quedar vacío)
+                    </div>
+                    <div *ngIf="this.formularioContacto.get('dnitutor')?.errors?.['minlength']" class="text-red-500">
+                        (Debe tener 9 caracteres)
+                    </div>
+                    <div *ngIf="this.formularioContacto.get('dnitutor')?.errors?.['maxlength']" class="text-red-500">
+                        (Debe tener 9 caracteres)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">Teléfono</label>
+                    <input type="text" formControlName="telefonoPrincipal" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <div *ngIf="this.formularioContacto.get('telefonoPrincipal')?.errors?.['required']"
+                        class="text-red-500">
+                        (El campo no puede quedar vacío)
+                    </div>
+                    <div *ngIf="this.formularioContacto.get('telefonoPrincipal')?.errors?.['minlength']"
+                        class="text-red-500">
+                        (Debe tener 9 números)
+                    </div>
+                    <div *ngIf="this.formularioContacto.get('telefonoPrincipal')?.errors?.['maxlength']"
+                        class="text-red-500">
+                        (Debe tener 9 números)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">Teléfono 2</label>
+                    <input type="text" formControlName="telefonoSecundario"
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <div *ngIf="this.formularioContacto.get('telefonoSecundario')?.errors?.['minlength']"
+                        class="text-red-500">
+                        (Debe tener 9 números)
+                    </div>
+                    <div *ngIf="this.formularioContacto.get('telefonoSecundario')?.errors?.['maxlength']"
+                        class="text-red-500">
+                        (Debe tener 9 números)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">Correo electrónico:</label>
+                    <input type="text" formControlName="correoParticipante"
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <div *ngIf="this.formularioContacto.get('correoParticipante')?.errors?.['required']"
+                        class="text-red-500">
+                        (El campo no puede quedar vacío)
+                    </div>
+                    <div *ngIf="this.formularioContacto.get('correoParticipante')?.errors?.['email']"
+                        class="text-red-500">
+                        (El correo no es válido)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">¿Permite que salga en las fotos/vídeos grupales durante la realización de las actividades del campus?</label>
+                    <select formControlName="permiteFotos" required
+                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10">
+                        <option value="NO">NO</option>
+                        <option value="SI">SI</option>
+                    </select>
+                    <div *ngIf="this.formularioContacto.get('permiteFotos')?.errors?.['required']" class="text-red-500">
+                        (Selecciona una opción)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">Talla de camiseta</label>
+                    <select formControlName="tallaCamiseta" required
+                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10">
+                        <option value="6">Talla 6</option>
+                        <option value="8">Talla 8</option>
+                        <option value="10">Talla 10</option>
+                        <option value="S">Talla S</option>
+                        <option value="M">Talla M</option>
+                        <option value="L">Talla L</option>
+                        <option value="XL">Talla XL</option>
+                        <option value="XXL">Talla XXL</option>
+                    </select>
+                    <div *ngIf="this.formularioContacto.get('tallaCamiseta')?.errors?.['required']" class="text-red-500">
+                        (Selecciona una opción)
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="block text-white text-left">¿Es jugador del club?</label>
+                    <select formControlName="esJugador" required
+                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10">
+                        <option value="NO">NO</option>
+                        <option value="SI">SI</option>
+                    </select>
+                    <div *ngIf="this.formularioContacto.get('esJugador')?.errors?.['required']" class="text-red-500">
+                        (Selecciona una opción)
+                    </div>
+                </div>
+
+                <button type="submit"
+                    class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Enviar Inscripción
+                </button>
+            </form>
+            <div>{{resultado}}</div>
+        </div>
+    </div>
+</section>
