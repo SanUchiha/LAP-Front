@@ -10,7 +10,7 @@ export class EmailService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private apiUrlBase = 'http://www.likeaproevent.somee.com/api/';
+  private apiUrlBase = 'https://www.likeaproevent.somee.com/api/';
 
   //Enviar email
   SendMail(reporte: Reporte): Observable<any> {

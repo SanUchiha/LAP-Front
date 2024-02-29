@@ -10,7 +10,7 @@ export class ParticipantesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private apiUrlBase = 'http://www.likeaproevent.somee.com/api/participante/';
+  private apiUrlBase = 'https://www.likeaproevent.somee.com/api/participante/';
 
   //Registrar un participante.
   RegistrarPartcipante(participante: Participante): Observable<ParticipanteResponse> {
