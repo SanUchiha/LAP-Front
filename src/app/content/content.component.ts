@@ -73,7 +73,7 @@ export class ContentComponent implements OnInit {
       idCampus: campus.idCampus,
       nombre: campus.nombre,
       descripcion: campus.descripcionCampus,
-      fechas: `Desde el ${fechaInicio} hasta el ${fechaFinal}.`,
+      fechas: `Del ${fechaInicio} al ${fechaFinal}.`,
       horario: `Desde las ${campus.horaInicio}:00 hasta las ${campus.horaFinal}:00`,
       numeroPlazas: campus.aforoMaximo,
       numeroPlazasRestantes: restantes,
