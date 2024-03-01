@@ -4,6 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CampusShow } from '../../interfaces/campus';
 import { CampusService } from '../../services/campus.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-card',
@@ -13,6 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
+
+  @Input() listaCampusIn?: CampusShow[] = [];
 
   constructor(private campusService: CampusService, private router: Router, private route: ActivatedRoute) { }
 
@@ -28,9 +31,13 @@ export class CardComponent {
       }
     );
   }
+
   GoToForm(idCampus: number) {
       this.router.navigate(["formSign", {id: idCampus}]);
   }
 
-  @Input() listaCampusIn?: CampusShow[] = [];
+  SendMessageAlertFull(){
+    alert("¡Lo sentimos, las plazas están completas! Ponte en contacto con el coordinador para entrar en lista de espera. Teléfono 638017265")
+  }
+  
 }

@@ -29,7 +29,7 @@ export class FormSignComponent implements OnInit {
 
   formularioContacto = new FormGroup({
 
-    nombre: new FormControl('', [Validators.required, Validators.minLength(10)]),
+    nombre: new FormControl('', [Validators.required, Validators.maxLength(30)]),
     primerApellido: new FormControl('', [Validators.required, Validators.maxLength(30)]),
     segundoApellido: new FormControl('', [Validators.maxLength(30)]),
     dniParticipante: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
@@ -92,7 +92,6 @@ export class FormSignComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.idCampus = params['id']
-      // Ahora, puedes usar idCampus en tu formulario
     });
   }
 
@@ -124,7 +123,8 @@ export class FormSignComponent implements OnInit {
     if (this.formularioContacto.valid) {
       this.resultado = "Todos los campos han sido rellenados correctamente";
 
-      var fechaYear = await new Date(this.formularioContacto.value.fechaNacimiento!).getFullYear().toString();
+      const fechaNacimiento = this.formularioContacto.value.fechaNacimiento!;
+      const fechaYear = new Date(fechaNacimiento).getFullYear().toString();
 
       this.participante = {
         nombre: this.formularioContacto.value.nombre!,
@@ -155,7 +155,7 @@ export class FormSignComponent implements OnInit {
       };
 
       try {
-        await this.registrarParticipante().toPromise(); // Convertir a promesa
+        await this.registrarParticipante().toPromise();
         await this.obtenerCampus();
         this.openDialog();
       } catch (error) {
@@ -187,7 +187,11 @@ export class FormSignComponent implements OnInit {
 
   openDialog() {
     this.dialog.open(DialogReporteComponent,
-      { data: { participante: this.participante,
-                campus: this.campusResponseById?.data } });
+      {
+        data: {
+          participante: this.participante,
+          campus: this.campusResponseById?.data
+        }
+      });
   }
 }

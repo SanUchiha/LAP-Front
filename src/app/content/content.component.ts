@@ -24,6 +24,7 @@ export class ContentComponent implements OnInit {
   listaCampusOut: CampusShow[];
   campusResponse?: CampusResponse;
   participanteResponse?: ParticipanteResponse;
+  isFull: boolean = false;
 
   ngOnInit() {
     this.ObtenerTodosCampus();

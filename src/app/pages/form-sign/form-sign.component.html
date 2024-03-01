@@ -6,7 +6,8 @@
                 <div class="mb-3">
                     <label class="block text-white text-left">Nombre del participante</label>
                     <input type="text" formControlName="nombre" required
-                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500
+                        {{ this.formularioContacto.get('nombre')?.invalid ? 'border-red-500 border-4' : '' }}">
                     <div *ngIf="this.formularioContacto.get('nombre')?.errors?.['required']" class="text-red-500">
                         (El campo no puede quedar vacío)
                     </div>
@@ -15,7 +16,8 @@
                 <div class="mb-3">
                     <label class="block text-white text-left">Primer Apellido</label>
                     <input type="text" formControlName="primerApellido" required
-                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500
+                        {{ this.formularioContacto.get('primerApellido')?.invalid ? 'border-red-500 border-4' : '' }}">
                     <div *ngIf="this.formularioContacto.get('primerApellido')?.errors?.['required']"
                         class="text-red-500">
                         (El campo no puede quedar vacío)
@@ -24,14 +26,15 @@
 
                 <div class="mb-3">
                     <label class="block text-white text-left">Segundo Apellido</label>
-                    <input type="text" formControlName="segundoApellido" required
+                    <input type="text" formControlName="segundoApellido"
                         class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
                 </div>
 
                 <div class="mb-3">
                     <label class="block text-white text-left">DNI del participante</label>
                     <input type="text" formControlName="dniParticipante" required
-                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500
+                        {{ this.formularioContacto.get('dniParticipante')?.invalid ? 'border-red-500 border-4' : '' }}">
                     <div *ngIf="this.formularioContacto.get('dniParticipante')?.errors?.['required']"
                         class="text-red-500">
                         (El campo no puede quedar vacío)
@@ -50,7 +53,8 @@
                 <div class="mb-3">
                     <label class="block text-white text-left">Fecha de nacimiento</label>
                     <input type="text" formControlName="fechaNacimiento" required
-                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500
+                        {{ this.formularioContacto.get('fechaNacimiento')?.invalid ? 'border-red-500 border-4' : '' }}">
                     <div *ngIf="this.formularioContacto.get('fechaNacimiento')?.errors?.['required']"
                         class="text-red-500">
                         (El campo no puede quedar vacío)
@@ -63,9 +67,10 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="block text-white text-left">direccion</label>
+                    <label class="block text-white text-left">Dirección</label>
                     <input type="text" formControlName="direccion" required
-                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500
+                        {{ this.formularioContacto.get('direccion')?.invalid ? 'border-red-500 border-4' : '' }}">
                     <div *ngIf="this.formularioContacto.get('direccion')?.errors?.['required']" class="text-red-500">
                         (El campo no puede quedar vacío)
                     </div>
@@ -74,7 +79,8 @@
                 <div class="mb-3">
                     <label class="block text-white text-left">Localidad</label>
                     <input type="text" formControlName="localidad" required
-                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500
+                        {{ this.formularioContacto.get('localidad')?.invalid ? 'border-red-500 border-4' : '' }}">
                     <div *ngIf="this.formularioContacto.get('localidad')?.errors?.['required']" class="text-red-500">
                         (El campo no puede quedar vacío)
                     </div>
@@ -83,7 +89,8 @@
                 <div class="mb-3">
                     <label class="block text-white text-left">Código postal</label>
                     <input type="text" formControlName="codigoPostal" required
-                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500
+                        {{ this.formularioContacto.get('codigoPostal')?.invalid ? 'border-red-500 border-4' : '' }}">
                     <div *ngIf="this.formularioContacto.get('codigoPostal')?.errors?.['required']" class="text-red-500">
                         (El campo no puede quedar vacío)
                     </div>
@@ -106,7 +113,8 @@
                 <div class="mb-3">
                     <label class="block text-white text-left">¿Toma medicación?</label>
                     <select formControlName="tomaMedicacion" required
-                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10">
+                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10
+                        {{ this.formularioContacto.get('tomaMedicacion')?.invalid ? 'border-red-500 border-4' : '' }}">
                         <option value="NO">NO</option>
                         <option value="SI">SI</option>
                     </select>
@@ -126,7 +134,8 @@
                 <div class="mb-3">
                     <label class="block text-white text-left">¿Alergias?</label>
                     <select formControlName="alergias" required
-                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10">
+                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10
+                        {{ this.formularioContacto.get('alergias')?.invalid ? 'border-red-500 border-4' : '' }}">
                         <option value="NO">NO</option>
                         <option value="SI">SI</option>
                     </select>
@@ -146,7 +155,8 @@
                 <div class="mb-3">
                     <label class="block text-white text-left">Nombre del tutor</label>
                     <input type="text" formControlName="nombreTutor" required
-                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500
+                        {{ this.formularioContacto.get('nombreTutor')?.invalid ? 'border-red-500 border-4' : '' }}">
                     <div *ngIf="this.formularioContacto.get('nombreTutor')?.errors?.['required']" class="text-red-500">
                         (El campo no puede quedar vacío)
                     </div>
@@ -155,7 +165,8 @@
                 <div class="mb-3">
                     <label class="block text-white text-left">Primer Apellido</label>
                     <input type="text" formControlName="primerApellidoTutor" required
-                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500
+                        {{ this.formularioContacto.get('primerApellidoTutor')?.invalid ? 'border-red-500 border-4' : '' }}">
                     <div *ngIf="this.formularioContacto.get('primerApellidoTutor')?.errors?.['required']"
                         class="text-red-500">
                         (El campo no puede quedar vacío)
@@ -164,14 +175,15 @@
 
                 <div class="mb-3">
                     <label class="block text-white text-left">Segundo Apellido</label>
-                    <input type="text" formControlName="segundoApellidoTutor" required
+                    <input type="text" formControlName="segundoApellidoTutor"
                         class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
                 </div>
 
                 <div class="mb-3">
                     <label class="block text-white text-left">DNI del tutor</label>
                     <input type="text" formControlName="dnitutor" required
-                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500
+                        {{ this.formularioContacto.get('dnitutor')?.invalid ? 'border-red-500 border-4' : '' }}">
                     <div *ngIf="this.formularioContacto.get('dnitutor')?.errors?.['required']" class="text-red-500">
                         (El campo no puede quedar vacío)
                     </div>
@@ -186,7 +198,8 @@
                 <div class="mb-3">
                     <label class="block text-white text-left">Teléfono</label>
                     <input type="text" formControlName="telefonoPrincipal" required
-                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500
+                        {{ this.formularioContacto.get('telefonoPrincipal')?.invalid ? 'border-red-500 border-4' : '' }}">
                     <div *ngIf="this.formularioContacto.get('telefonoPrincipal')?.errors?.['required']"
                         class="text-red-500">
                         (El campo no puede quedar vacío)
@@ -217,8 +230,9 @@
 
                 <div class="mb-3">
                     <label class="block text-white text-left">Correo electrónico:</label>
-                    <input type="text" formControlName="correoParticipante"
-                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500">
+                    <input type="text" formControlName="correoParticipante" required
+                        class="w-full px-4 py-2 border rounded-md text-gray-700 focus:outline-none focus:border-blue-500
+                        {{ this.formularioContacto.get('correoParticipante')?.invalid ? 'border-red-500 border-4' : '' }}">
                     <div *ngIf="this.formularioContacto.get('correoParticipante')?.errors?.['required']"
                         class="text-red-500">
                         (El campo no puede quedar vacío)
@@ -232,7 +246,8 @@
                 <div class="mb-3">
                     <label class="block text-white text-left">¿Permite que salga en las fotos/vídeos grupales durante la realización de las actividades del campus?</label>
                     <select formControlName="permiteFotos" required
-                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10">
+                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10
+                        {{ this.formularioContacto.get('permiteFotos')?.invalid ? 'border-red-500 border-4' : '' }}">
                         <option value="NO">NO</option>
                         <option value="SI">SI</option>
                     </select>
@@ -244,7 +259,8 @@
                 <div class="mb-3">
                     <label class="block text-white text-left">Talla de camiseta</label>
                     <select formControlName="tallaCamiseta" required
-                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10">
+                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10
+                        {{ this.formularioContacto.get('tallaCamiseta')?.invalid ? 'border-red-500 border-4' : '' }}">
                         <option value="6">Talla 6</option>
                         <option value="8">Talla 8</option>
                         <option value="10">Talla 10</option>
@@ -262,7 +278,8 @@
                 <div class="mb-3">
                     <label class="block text-white text-left">¿Es jugador del club?</label>
                     <select formControlName="esJugador" required
-                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10">
+                        class="rounded border border-gray-700 focus:ring-2 focus:ring-yellow-900 appearance-none py-2 focus:outline-none focus:border-yellow-500 text-black pl-3 pr-10
+                        {{ this.formularioContacto.get('esJugador')?.invalid ? 'border-red-500 border-4' : '' }}">
                         <option value="NO">NO</option>
                         <option value="SI">SI</option>
                     </select>
