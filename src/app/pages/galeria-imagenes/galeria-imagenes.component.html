@@ -1,0 +1,8 @@
+<mat-grid-list cols="3" rowHeight="2:1">
+  @defer (on viewport; on timer(5s)) {
+  <app-card-fotos></app-card-fotos>
+
+  } @placeholder {
+  <app-spinner-ball></app-spinner-ball>
+  }
+</mat-grid-list>

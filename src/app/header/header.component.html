@@ -1,8 +1,32 @@
 <mat-toolbar>
-    <button (click)="GoToHome()" mat-raised-button class="full-height-button">Inicio</button>
-    <span class="example-spacer"></span>
-    <span>Like a pro</span>
-    <button (click)="GoToContact()" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-        <mat-icon>email</mat-icon>
+  <button (click)="GoToHome()" mat-raised-button class="full-height-button">
+    Inicio
+  </button>
+  <button (click)="GoToEventos()" mat-raised-button class="full-height-button">
+    Eventos
+  </button>
+  <button
+    mat-raised-button
+    class="full-height-button"
+    [matMenuTriggerFor]="menuImagenes"
+  >
+    Galería
+  </button>
+  <mat-menu #menuImagenes="matMenu">
+    @for (campus of campusResponse?.data; track $index) {
+    <button mat-menu-item (click)="GoToImages(campus.nombre)">
+      {{ campus.nombre }}
     </button>
+    }
+  </mat-menu>
+  <span class="example-spacer"></span>
+  <span>Like a pro</span>
+  <!-- <button
+    (click)="GoToContact()"
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
+    <mat-icon>email</mat-icon>
+  </button> -->
 </mat-toolbar>
